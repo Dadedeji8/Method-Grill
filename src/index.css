@@ -1,1 +1,40 @@
+:root {
+    --primary: #DD3438;
+    --secondary: #085104;
+}
+
+* {
+    transition: all 0.3s ease-in-out;
+}
+
 @import "tailwindcss";
+
+.container {
+    @apply max-w-[1400px] mx-auto px-2 md:px-4;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e59597;
+    /* Tailwind gray-200 */
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: grabbing;
+    background-color: #DD3438;
+    /* Tailwind blue-500 */
+    border-radius: 9999px;
+    border: 2px solid#e7484a;
+}
+
+@theme {
+    --color-primary: #DD3438;
+    --color-secondary: #085104;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
