@@ -66,7 +66,10 @@ const MenuPage = () => {
                                 })
                             }} options={categoriesArray.map(category => ({ value: category.title, label: category.title }))} />
                         </div>
-                        <CardComponent />
+                        <div className='mt-2'>
+
+                            <CardComponent />
+                        </div>
                     </div>
                 </div>
 
