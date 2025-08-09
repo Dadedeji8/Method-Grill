@@ -20,7 +20,7 @@ const CardComponent = () => {
                 <button className='bg-[#ffffff] text-black border-1 px-2 py-1 font-semibold rounded-3xl'>
                     ₦2,0000
                 </button>
-                <button className='bg-primary text-white px-1 py-1 font-semibold rounded-3xl h-[30px] flex items-center gap-2 cursor-pointer'>
+                <button className='bg-primary text-white px-1 py-1 pl-2 font-semibold rounded-3xl h-[30px] flex items-center gap-2 cursor-pointer'>
                     View more  <span className="flex items-center justify-center bg-white text-primary rounded-full text-sm p-1">
                         <SlArrowRight />
                     </span>
