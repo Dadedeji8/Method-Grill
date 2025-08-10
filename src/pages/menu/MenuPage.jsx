@@ -218,7 +218,7 @@ const CategoryCard = ({ title, imgURL }) => {
                 {/* Title with Advanced Typography */}
                 <h1 className="relative z-10 text-white font-black text-lg md:text-xl lg:text-2xl leading-tight tracking-wide group-hover:scale-110 transition-all duration-300">
                     <Link 
-                        to={`/menu/${title.toLowerCase().replace(/\s+/g, '-')}`} 
+                        to={`/menu/category/${encodeURIComponent(title)}`} 
                         className="relative inline-block group-hover:text-primary-light transition-colors duration-300"
                     >
                         <span className="relative">

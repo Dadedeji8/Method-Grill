@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router'
 import AdminPage from './pages/AdminPage.jsx'
 import MenuPage from './pages/menu/MenuPage.jsx'
+import CategoryPage from './pages/menu/CategoryPage.jsx'
 import SingleItemPage from './pages/menu/SingleItemPage.jsx'
 import ComingSoon from './pages/ComingSoon.jsx'
 import LoginPage from './pages/LoginPage.jsx'
@@ -23,6 +24,7 @@ function App() {
               </ProtectedRoute>
             } />
             <Route path="/menu" element={<MenuPage />} />
+            <Route path="/menu/category/:category" element={<CategoryPage />} />
             <Route path="/menu/item/:id" element={<SingleItemPage />} />
           </Routes>
         </Router>
