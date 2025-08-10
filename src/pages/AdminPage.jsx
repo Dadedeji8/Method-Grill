@@ -371,14 +371,13 @@ const AdminPage = () => {
                         </div>
                       </div>
                     )}
-                    
+
                     {/* Status Badge */}
                     <div className="absolute top-3 right-3">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        item.isAvailable 
-                          ? 'bg-green-100 text-green-800 border border-green-200' 
-                          : 'bg-red-100 text-red-800 border border-red-200'
-                      }`}>
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${item.isAvailable
+                        ? 'bg-green-100 text-green-800 border border-green-200'
+                        : 'bg-red-100 text-red-800 border border-red-200'
+                        }`}>
                         {item.isAvailable ? 'Available' : 'Unavailable'}
                       </span>
                     </div>
@@ -400,10 +399,10 @@ const AdminPage = () => {
                         {item.name}
                       </h3>
                       <div className="flex items-center">
-                        <span className="text-2xl font-bold text-green-600">${item.price}</span>
+                        <span className="text-2xl font-bold text-green-600">₦{item.price}</span>
                       </div>
                     </div>
-                    
+
                     <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
                       {item.description || 'No description available'}
                     </p>
@@ -418,11 +417,11 @@ const AdminPage = () => {
                           {item.preparationTime} mins
                         </div>
                       )}
-                      
+
                       {item.spicyLevel && item.spicyLevel > 1 && (
                         <div className="flex items-center text-sm text-red-500">
                           <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                           </svg>
                           Spicy Level: {item.spicyLevel}/5
                         </div>
