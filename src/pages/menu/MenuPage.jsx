@@ -25,8 +25,18 @@ const MenuPage = () => {
     } = useMenu();
     const { user } = useAuth();
 
-    const [searchTerm, setSearchTerm] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [searchTerm, setSearchTerm] = useState(filters.search || '');
+    const [selectedCategory, setSelectedCategory] = useState(
+        filters.category ? { value: filters.category, label: filters.category } : null
+    );
+
+    // Update local state when filters change from external sources (like navbar search)
+    useEffect(() => {
+        setSearchTerm(filters.search || '');
+        setSelectedCategory(
+            filters.category ? { value: filters.category, label: filters.category } : null
+        );
+    }, [filters.search, filters.category]);
 
     // Fallback categories for display
     const fallbackCategories = [
@@ -45,7 +55,19 @@ const MenuPage = () => {
         : fallbackCategories;
 
     const handleSearch = () => {
-        updateFilters({ search: searchTerm });
+        const trimmedSearch = searchTerm.trim();
+        updateFilters({ search: trimmedSearch });
+    };
+
+    const handleSearchInputChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const handleSearchKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSearch();
+        }
     };
 
     const handleCategorySelect = (selectedOption) => {

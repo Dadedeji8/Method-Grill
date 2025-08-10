@@ -164,12 +164,17 @@ const AdminPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navbar />
 
       <div className="container mx-auto px-4 py-8">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">Admin Dashboard</h1>
+          <p className="text-gray-600 dark:text-gray-300">Welcome back, {user?.name}!</p>
+        </div>
+
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Admin Dashboard</h1>
           <button
             onClick={logout}
             className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
@@ -182,13 +187,13 @@ const AdminPage = () => {
         <div className="flex space-x-4 mb-6">
           <button
             onClick={() => setActiveTab('menu')}
-            className={`px-4 py-2 rounded ${activeTab === 'menu' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded transition-colors duration-200 ${activeTab === 'menu' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
           >
             Menu Management
           </button>
           <button
             onClick={() => setActiveTab('admin')}
-            className={`px-4 py-2 rounded ${activeTab === 'admin' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded transition-colors duration-200 ${activeTab === 'admin' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
           >
             Admin Management
           </button>
@@ -198,14 +203,14 @@ const AdminPage = () => {
         {activeTab === 'menu' && (
           <div>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold">Menu Items</h2>
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">Menu Items</h2>
               <button
                 onClick={() => {
                   setShowAddForm(true);
                   setEditingItem(null);
                   resetMenuForm();
                 }}
-                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors duration-200"
               >
                 Add New Item
               </button>
@@ -213,8 +218,8 @@ const AdminPage = () => {
 
             {/* Add/Edit Form */}
             {showAddForm && (
-              <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-                <h3 className="text-xl font-semibold mb-4">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-6">
+                <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
                   {editingItem ? 'Edit Menu Item' : 'Add New Menu Item'}
                 </h3>
                 <form onSubmit={handleMenuSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -224,7 +229,7 @@ const AdminPage = () => {
                     placeholder="Item Name"
                     value={menuForm.name}
                     onChange={handleMenuFormChange}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     required
                   />
                   <input
@@ -233,7 +238,7 @@ const AdminPage = () => {
                     placeholder="Price"
                     value={menuForm.price}
                     onChange={handleMenuFormChange}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     required
                     step="0.01"
                   />
@@ -241,7 +246,7 @@ const AdminPage = () => {
                     name="category"
                     value={menuForm.category}
                     onChange={handleMenuFormChange}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     required
                   >
                     <option value="">Select Category</option>
@@ -262,7 +267,7 @@ const AdminPage = () => {
                     placeholder="Preparation Time (minutes)"
                     value={menuForm.preparationTime}
                     onChange={handleMenuFormChange}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                   />
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -281,7 +286,7 @@ const AdminPage = () => {
                     placeholder="Spicy Level (1-5)"
                     value={menuForm.spicyLevel}
                     onChange={handleMenuFormChange}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     min="1"
                     max="5"
                   />
@@ -298,14 +303,14 @@ const AdminPage = () => {
                     placeholder="Ingredients (comma-separated)"
                     value={menuForm.ingredients}
                     onChange={handleMenuFormChange}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                   />
                   <input
                     type="text"
                     placeholder="Allergens (comma-separated)"
                     value={menuForm.allergens}
                     onChange={handleMenuFormChange}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                   />
                   <label className="flex items-center">
                     <input
@@ -342,12 +347,12 @@ const AdminPage = () => {
             )}
 
             {/* Menu Items List */}
-            {loading && <div className="text-center">Loading menu items...</div>}
-            {error && <div className="text-red-600 text-center">{error}</div>}
+            {loading && <div className="text-center text-gray-600 dark:text-gray-300">Loading menu items...</div>}
+            {error && <div className="text-red-600 dark:text-red-400 text-center">{error}</div>}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {menuItems.map((item) => (
-                <div key={item._id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                <div key={item._id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
                   {/* Image Container */}
                   <div className="relative overflow-hidden">
                     {item.featuredImage ? (
@@ -475,7 +480,7 @@ const AdminPage = () => {
                     placeholder="Admin Name"
                     value={adminForm.name}
                     onChange={(e) => setAdminForm({ ...adminForm, name: e.target.value })}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     required
                   />
                   <input
@@ -483,7 +488,7 @@ const AdminPage = () => {
                     placeholder="Admin Email"
                     value={adminForm.email}
                     onChange={(e) => setAdminForm({ ...adminForm, email: e.target.value })}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     required
                   />
                   <input
@@ -491,7 +496,7 @@ const AdminPage = () => {
                     placeholder="Admin Phone Number"
                     value={adminForm.phoneNumber}
                     onChange={(e) => setAdminForm({ ...adminForm, phoneNumber: e.target.value })}
-                    className="border rounded px-3 py-2"
+                    className="border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     required
                   />
                   <input

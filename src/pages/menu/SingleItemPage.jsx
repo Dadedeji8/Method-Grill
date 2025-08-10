@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import Navbar from '../../components/NavbarComponent.jsx';
 import { useMenu } from '../../contexts/MenuContext.jsx';
+import RequestMealPopup from '../../components/RequestMealPopup.jsx';
 
 // Helper functions (same as MenuPage)
 const formatNaira = (value) => new Intl.NumberFormat('en-NG', {
@@ -58,6 +59,7 @@ const SingleItemPage = () => {
     const { menuItems, loading, error } = useMenu();
     const [item, setItem] = useState(null);
     const [imageLoaded, setImageLoaded] = useState(false);
+    const [isRequestMealPopupOpen, setIsRequestMealPopupOpen] = useState(false);
 
     useEffect(() => {
         if (menuItems.length > 0 && id) {
@@ -278,8 +280,20 @@ const SingleItemPage = () => {
                                 </div>
                             )}
                             
-                            {/* Action Button */}
-                            <div className="pt-4">
+                            {/* Action Buttons */}
+                            <div className="pt-4 space-y-3">
+                                <button
+                                    onClick={() => setIsRequestMealPopupOpen(true)}
+                                    className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 ${
+                                        available
+                                            ? 'bg-gradient-to-r from-green-600 to-green-700 text-white hover:shadow-2xl hover:shadow-green-600/25 transform hover:scale-105'
+                                            : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                    }`}
+                                    disabled={!available}
+                                >
+                                    {available ? '🍽️ Request This Meal' : 'Currently Unavailable'}
+                                </button>
+                                
                                 <button
                                     className={`w-full py-4 rounded-2xl font-bold text-lg transition-all duration-300 ${
                                         available
@@ -295,6 +309,13 @@ const SingleItemPage = () => {
                     </div>
                 </div>
             </section>
+            
+            {/* Request Meal Popup */}
+            <RequestMealPopup 
+                isOpen={isRequestMealPopupOpen} 
+                onClose={() => setIsRequestMealPopupOpen(false)}
+                mealItem={item}
+            />
         </div>
     );
 };
