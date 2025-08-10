@@ -57,7 +57,7 @@ const NavbarComponent = () => {
 
                 {/* Mobile Menu Button */}
                 <div className='md:hidden'>
-                    <button 
+                    <button
                         onClick={toggleMenu}
                         className='p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200'
                         aria-label="Toggle menu"
@@ -74,39 +74,39 @@ const NavbarComponent = () => {
                 <div className='hidden md:block'>
                     <ul className='flex items-center justify-center gap-6'>
                         <li>
-                            <Link 
-                                to="/" 
+                            <Link
+                                to="/"
                                 className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 font-medium transition-colors duration-200"
                             >
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link 
-                                to="/menu" 
+                            <Link
+                                to="/menu"
                                 className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 font-medium transition-colors duration-200"
                             >
                                 Menu
                             </Link>
                         </li>
                         <li>
-                            <button 
+                            <button
                                 onClick={() => setIsContactPopupOpen(true)}
                                 className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 font-medium transition-colors duration-200"
                             >
                                 Get In Touch
                             </button>
                         </li>
-                        
+
                         {/* Search Bar */}
                         <li>
                             <form onSubmit={handleSearch} className='flex items-center gap-2 bg-gray-50 dark:bg-gray-800 p-2 px-4 rounded-3xl max-w-[300px] border border-gray-200 dark:border-gray-700'>
-                                <input 
-                                    type="text" 
+                                <input
+                                    type="text"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
-                                    className='w-full bg-transparent outline-none text-gray-700 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-400' 
-                                    placeholder="Search menu..." 
+                                    className='w-full bg-transparent outline-none text-gray-700 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-400'
+                                    placeholder="Search menu..."
                                 />
                                 <button type="submit" className="text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200">
                                     <SlMagnifier />
@@ -119,14 +119,14 @@ const NavbarComponent = () => {
                             <li className="flex items-center gap-4">
                                 <span className="text-sm text-gray-700 dark:text-gray-300">Welcome, {user?.name}</span>
                                 {user?.role === 'admin' && (
-                                    <Link 
-                                        to="/admin" 
+                                    <Link
+                                        to="/admin"
                                         className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg font-medium transition-colors duration-200"
                                     >
                                         Admin
                                     </Link>
                                 )}
-                                <button 
+                                <button
                                     onClick={handleLogout}
                                     className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg font-medium transition-colors duration-200"
                                 >
@@ -134,14 +134,7 @@ const NavbarComponent = () => {
                                 </button>
                             </li>
                         ) : (
-                            <li>
-                                <Link 
-                                    to="/login" 
-                                    className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200"
-                                >
-                                    Login
-                                </Link>
-                            </li>
+                            ""
                         )}
 
                         {/* Dark Mode Toggle */}
@@ -169,21 +162,20 @@ const NavbarComponent = () => {
 
             {/* Mobile Menu Overlay */}
             {isMenuOpen && (
-                <div 
+                <div
                     className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
                     onClick={closeMenu}
                 ></div>
             )}
 
             {/* Mobile Menu */}
-            <div className={`fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
-                isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}>
+            <div className={`fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 md:hidden ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}>
                 <div className="p-6">
                     {/* Mobile Menu Header */}
                     <div className="flex justify-between items-center mb-8">
                         <img src={logo} alt="Methods Grill" className='w-10' />
-                        <button 
+                        <button
                             onClick={closeMenu}
                             className='p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200'
                         >
@@ -193,12 +185,12 @@ const NavbarComponent = () => {
 
                     {/* Mobile Search */}
                     <form onSubmit={handleSearch} className='flex items-center gap-2 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg mb-6 border border-gray-200 dark:border-gray-700'>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className='w-full bg-transparent outline-none text-gray-700 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-400' 
-                            placeholder="Search menu..." 
+                            className='w-full bg-transparent outline-none text-gray-700 dark:text-gray-300 placeholder-gray-500 dark:placeholder-gray-400'
+                            placeholder="Search menu..."
                         />
                         <button type="submit" className="text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200">
                             <SlMagnifier />
@@ -208,8 +200,8 @@ const NavbarComponent = () => {
                     {/* Mobile Navigation Links */}
                     <ul className='space-y-4 mb-8'>
                         <li>
-                            <Link 
-                                to="/" 
+                            <Link
+                                to="/"
                                 onClick={closeMenu}
                                 className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors duration-200"
                             >
@@ -217,8 +209,8 @@ const NavbarComponent = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link 
-                                to="/menu" 
+                            <Link
+                                to="/menu"
                                 onClick={closeMenu}
                                 className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors duration-200"
                             >
@@ -226,7 +218,7 @@ const NavbarComponent = () => {
                             </Link>
                         </li>
                         <li>
-                            <button 
+                            <button
                                 onClick={() => {
                                     setIsContactPopupOpen(true);
                                     closeMenu();
@@ -246,15 +238,15 @@ const NavbarComponent = () => {
                                     Welcome, {user?.name}
                                 </div>
                                 {user?.role === 'admin' && (
-                                    <Link 
-                                        to="/admin" 
+                                    <Link
+                                        to="/admin"
                                         onClick={closeMenu}
                                         className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-colors duration-200"
                                     >
                                         Admin Panel
                                     </Link>
                                 )}
-                                <button 
+                                <button
                                     onClick={handleLogout}
                                     className="block w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200"
                                 >
@@ -262,13 +254,7 @@ const NavbarComponent = () => {
                                 </button>
                             </div>
                         ) : (
-                            <Link 
-                                to="/login" 
-                                onClick={closeMenu}
-                                className="block w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-colors duration-200"
-                            >
-                                Login
-                            </Link>
+                            ''
                         )}
                     </div>
 
@@ -294,11 +280,11 @@ const NavbarComponent = () => {
                     </div>
                 </div>
             </div>
-            
+
             {/* Contact Popup */}
-            <ContactPopup 
-                isOpen={isContactPopupOpen} 
-                onClose={() => setIsContactPopupOpen(false)} 
+            <ContactPopup
+                isOpen={isContactPopupOpen}
+                onClose={() => setIsContactPopupOpen(false)}
             />
         </nav>
     )
